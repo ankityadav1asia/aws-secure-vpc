@@ -232,10 +232,6 @@ This project demonstrates hands-on experience with:
 - Terraform Infrastructure as Code
 - Git/GitHub workflows
 
-## Resume-ready description
-
-Designed and deployed a multi-AZ AWS 3-tier architecture using Terraform, with public ALB/WAF perimeter controls, private EC2 application servers, isolated RDS MySQL, NAT-based private egress, IAM/SSM management, CloudTrail auditing, and VPC Flow Logs to CloudWatch. Implemented reproducible Infrastructure as Code and documented verification and teardown procedures for cross-platform deployment.
-
 ## Author
 
 Ankit Yadav
