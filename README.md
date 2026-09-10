@@ -4,7 +4,7 @@ A production-style AWS networking and security lab built with Terraform. The pro
 
 ## Architecture at a glance
 
-![AWS Secure VPC Architecture](diagrams/aws-secure-vpc-architecture.png)
+![AWS Secure VPC Architecture](diagrams/aws-secure-vpc-architecture.svg)
 
 ### Traffic path
 
@@ -86,7 +86,7 @@ aws-secure-vpc/
 ├── docs/
 │   └── architecture.md
 ├── diagrams/
-│   └── aws-secure-vpc-architecture.png
+│   └── aws-secure-vpc-architecture.svg
 ├── lambda/
 ├── scripts/
 └── README.md
@@ -144,10 +144,10 @@ terraform validate
 Create `terraform.tfvars` locally. **Do not commit it.** Example:
 
 ```hcl
-aws_region  = "ap-south-1"
+aws_region   = "ap-south-1"
 project_name = "ankit-secure-vpc"
-environment = "dev"
-db_password = "REPLACE_WITH_A_STRONG_LOCAL_PASSWORD"
+environment  = "dev"
+db_password  = "REPLACE_WITH_A_STRONG_LOCAL_PASSWORD"
 ```
 
 The repository `.gitignore` excludes `terraform.tfvars`, Terraform state, and `.terraform/`.
@@ -199,12 +199,6 @@ aws cloudtrail get-trail --name ankit-secure-vpc-trail --query "Trail.[Name,IsMu
 ```
 
 Expected: multi-region enabled and log-file validation enabled.
-
-### WAF association
-
-```powershell
-aws wafv2 get-web-acl-for-resource --resource-arn $(aws elbv2 describe-load-balancers --names ankit-secure-vpc-alb --query "LoadBalancers[0].LoadBalancerArn" --output text) --region ap-south-1 --query "WebACL.[Name,ARN]" --output table
-```
 
 ## HTTPS note
 
